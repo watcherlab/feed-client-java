@@ -20,7 +20,9 @@ api官方说明：<https://feed.watcherlab.com/apidoc/gbt>
 
 api官方说明：<https://feed.watcherlab.com/apidoc/APTquery>
 
+#### 用户反馈接口
 
+api官方说明：<https://feed.watcherlab.com/apidoc/feedback>
 
 
 ### 联系我们
