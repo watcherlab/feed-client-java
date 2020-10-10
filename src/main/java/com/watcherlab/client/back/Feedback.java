@@ -4,6 +4,7 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName Feedback
@@ -12,7 +13,8 @@ import com.alibaba.fastjson.JSONObject;
  * @Date 2019/12/5 17:18
  **/
 public class Feedback {
-    private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/feedback/v1";
+    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/feedback/v1";
+    private static final String DOWNLOAD_URL = "/api/feedback/v1";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -22,7 +24,9 @@ public class Feedback {
     private static final String CONTENT_TYPE = "application/json";
 
     public static void back(JSONObject feedBack) {
-        HttpRequest request = new HttpRequest(DOWNLOAD_URL);
+        String url = UrlConfig.getHost()+DOWNLOAD_URL;
+
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).header("token",MY_TOKEN).body(feedBack.toString());
         try {
             HttpResponse response = request.execute();

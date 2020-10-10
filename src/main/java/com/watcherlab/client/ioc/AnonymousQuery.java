@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName AnonymousQuery
@@ -14,8 +15,8 @@ import com.alibaba.fastjson.JSONObject;
  **/
 public class AnonymousQuery {
     /** 请求地址*/
-    private static final String URL = "https://feed.watcherlab.com/api/query/v1/";
-
+    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/";
+    private static String URL = "/api/query/v1/";
     /**
      * 客户端请求
      * @param value     请求数据
@@ -27,7 +28,8 @@ public class AnonymousQuery {
             System.out.println("提交的参数不能为null和空字符串");
             return null;
         }
-        String queryUrl = URL + commitValue;
+        String url = UrlConfig.getHost()+URL;
+        String queryUrl = url + commitValue;
         String responseStr = HttpUtil.get(queryUrl);
         JSONObject result = JSON.parseObject(responseStr);
         int code = result.getIntValue("code");

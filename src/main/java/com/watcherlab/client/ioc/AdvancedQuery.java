@@ -6,6 +6,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName AdvancedQuery
@@ -14,7 +15,8 @@ import com.alibaba.fastjson.JSONObject;
  * @Date 2019/3/27 17:05
  **/
 public class AdvancedQuery {
-    private static final String URL = "https://feed.watcherlab.com/api/query/v1/advanced";
+    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/advanced";
+    private static final String URL = "/api/query/v1/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -36,7 +38,8 @@ public class AdvancedQuery {
         JSONObject param = new JSONObject();
         param.put("token",MY_TOKEN);
         param.put("data", value);
-        HttpRequest request = new HttpRequest(URL);
+        String url = UrlConfig.getHost()+URL;
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).body(param.toJSONString());
         HttpResponse response = request.execute();
         if (response.getStatus() != 200) {

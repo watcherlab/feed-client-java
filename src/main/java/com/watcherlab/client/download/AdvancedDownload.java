@@ -6,6 +6,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 import java.io.File;
 
@@ -19,7 +20,8 @@ public class AdvancedDownload {
     /** 数据文件本地存放目录，需要自己指定:示例  D:\TEST_DIR\save */
     private static final String SAVE_PATH = "my dir";
     /** 接口请求地址 */
-    private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/advanced";
+    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/advanced";
+    private static final String DOWNLOAD_URL = "/api/download/v1/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -38,7 +40,8 @@ public class AdvancedDownload {
     private static void download(String type, String dateStr) {
         // 第一次请求：获取数据列表和对应的cursor值
         System.out.println("第一次请求：获取数据列表和对应的cursor值");
-        HttpRequest request = new HttpRequest(DOWNLOAD_URL);
+        String url = UrlConfig.getHost()+DOWNLOAD_URL;
+        HttpRequest request = new HttpRequest(url);
         PARAM.put("token",MY_TOKEN);
         PARAM.put("type", type);
         PARAM.put("cursor", 0);
