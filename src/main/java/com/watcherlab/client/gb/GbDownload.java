@@ -23,7 +23,6 @@ import java.nio.charset.Charset;
  * @Date 2019/11/4 13:22
  **/
 public class GbDownload {
-    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/gbt";
     private static final String DOWNLOAD_URL = "/api/download/v1/gbt";
     /**
      * 请求token，注册登陆后在用户中心获取

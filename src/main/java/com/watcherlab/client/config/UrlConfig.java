@@ -14,13 +14,9 @@ import java.util.Properties;
 public class UrlConfig {
 
     /**
-     * 默认协议
-     */
-    private static String pre = "https://";
-    /**
      * 默认地址
      */
-    private static String host = "feed.watcherlab.com";
+    private static String host = "https://feed.watcherlab.com";
 
     /**
      * 获取地址
@@ -41,7 +37,7 @@ public class UrlConfig {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            return pre+host;
+            return host;
         }
     }
 

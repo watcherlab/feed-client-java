@@ -15,7 +15,6 @@ import com.watcherlab.client.config.UrlConfig;
  **/
 public class AnonymousQuery {
     /** 请求地址*/
-    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/";
     private static String URL = "/api/query/v1/";
     /**
      * 客户端请求

@@ -15,7 +15,6 @@ import com.watcherlab.client.config.UrlConfig;
  * @Date 2019/3/27 17:05
  **/
 public class AdvancedQuery {
-    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/advanced";
     private static final String URL = "/api/query/v1/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取

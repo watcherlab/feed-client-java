@@ -16,7 +16,6 @@ import com.watcherlab.client.config.UrlConfig;
  **/
 public class AdvancedAptQuery {
 
-    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/aptnotes/advanced";
     private static String URL = "/api/query/v1/aptnotes/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取

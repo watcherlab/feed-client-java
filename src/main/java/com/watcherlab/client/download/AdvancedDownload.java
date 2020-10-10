@@ -20,7 +20,6 @@ public class AdvancedDownload {
     /** 数据文件本地存放目录，需要自己指定:示例  D:\TEST_DIR\save */
     private static final String SAVE_PATH = "my dir";
     /** 接口请求地址 */
-    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/advanced";
     private static final String DOWNLOAD_URL = "/api/download/v1/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取
