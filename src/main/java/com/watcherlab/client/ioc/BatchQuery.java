@@ -6,6 +6,7 @@ import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName BatchQuery
@@ -14,7 +15,8 @@ import com.alibaba.fastjson.JSONObject;
  * @Date 2019/11/29 18:05
  **/
 public class BatchQuery {
-    private static final String URL = "https://feed.watcherlab.com/api/query/v1/many";
+    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/many";
+    private static final String URL = "/api/query/v1/many";
 
     /**
      * 请求token，注册登陆后在用户中心获取
@@ -34,7 +36,8 @@ public class BatchQuery {
             System.out.println("提交的参数不能为null");
             return null;
         }
-        HttpRequest request = new HttpRequest(URL);
+        String url = UrlConfig.getHost()+URL;
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).header("token",MY_TOKEN).body(iocs.toJSONString());
         HttpResponse response = request.execute();
         JSONObject result = JSON.parseObject(response.body());

@@ -5,6 +5,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,7 +23,8 @@ import java.nio.charset.Charset;
  * @Date 2019/11/4 13:22
  **/
 public class GbDownload {
-    private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/gbt";
+    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/download/v1/gbt";
+    private static final String DOWNLOAD_URL = "/api/download/v1/gbt";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -44,7 +46,8 @@ public class GbDownload {
     private void download(String type, String clazz, String date) {
         // 第一次请求：获取数据列表和对应的cursor值
         System.out.println("第一次请求：获取数据列表和对应的cursor值");
-        HttpRequest request = new HttpRequest(DOWNLOAD_URL);
+        String url = UrlConfig.getHost()+DOWNLOAD_URL;
+        HttpRequest request = new HttpRequest(url);
         PARAM.put("type", type);
         // 目前仅支持可观测数据的国标的下载
         PARAM.put("class",clazz);

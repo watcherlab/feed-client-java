@@ -6,6 +6,7 @@ import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName AdvancedAptQuery
@@ -15,7 +16,8 @@ import com.alibaba.fastjson.JSONObject;
  **/
 public class AdvancedAptQuery {
 
-    private static final String URL = "https://feed.watcherlab.com/api/query/v1/aptnotes/advanced";
+    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/aptnotes/advanced";
+    private static String URL = "/api/query/v1/aptnotes/advanced";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -34,8 +36,9 @@ public class AdvancedAptQuery {
             System.out.println("提交的参数不能为null和空字符串");
             return null;
         }
+        String url = UrlConfig.getHost()+URL;
 
-        HttpRequest request = new HttpRequest(URL);
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).header("token",MY_TOKEN).body(param.toString());
         HttpResponse response = request.execute();
         JSONObject result = JSON.parseObject(response.body());

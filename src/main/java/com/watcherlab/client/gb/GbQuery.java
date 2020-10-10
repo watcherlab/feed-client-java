@@ -5,6 +5,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.http.Method;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.watcherlab.client.config.UrlConfig;
 
 /**
  * @ClassName GbQuery
@@ -13,7 +14,8 @@ import com.alibaba.fastjson.JSONObject;
  * @Date 2019/11/4 13:21
  **/
 public class GbQuery {
-    private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/query/v1/gbt";
+    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/query/v1/gbt";
+    private static final String DOWNLOAD_URL = "/api/query/v1/gbt";
     /**
      * 请求token，注册登陆后在用户中心获取
      * 注册地址：https://feed.watcherlab.com/user/register
@@ -34,7 +36,8 @@ public class GbQuery {
         param.put("data", value);
         param.put("cursor", 0);
 
-        HttpRequest request = new HttpRequest(DOWNLOAD_URL);
+        String url = UrlConfig.getHost()+DOWNLOAD_URL;
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).header("token",MY_TOKEN).body(param.toString());
         try {
             HttpResponse response = request.execute();
@@ -70,7 +73,8 @@ public class GbQuery {
         param.put("data", value);
         param.put("cursor", 0);
         int cursor = 0;
-        HttpRequest request = new HttpRequest(DOWNLOAD_URL);
+        String url = UrlConfig.getHost()+DOWNLOAD_URL;
+        HttpRequest request = new HttpRequest(url);
         request.setMethod(Method.POST).contentType(CONTENT_TYPE).header("token",MY_TOKEN);
         JSONObject result = getResponse(request, param);
         if (result != null) {
