@@ -14,7 +14,6 @@ import com.watcherlab.client.config.UrlConfig;
  * @Date 2019/11/4 13:21
  **/
 public class GbQuery {
-    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/query/v1/gbt";
     private static final String DOWNLOAD_URL = "/api/query/v1/gbt";
     /**
      * 请求token，注册登陆后在用户中心获取

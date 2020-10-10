@@ -15,7 +15,6 @@ import com.watcherlab.client.config.UrlConfig;
  * @Date 2019/11/29 18:05
  **/
 public class BatchQuery {
-    //private static final String URL = "https://feed.watcherlab.com/api/query/v1/many";
     private static final String URL = "/api/query/v1/many";
 
     /**

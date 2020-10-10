@@ -13,7 +13,6 @@ import com.watcherlab.client.config.UrlConfig;
  * @Date 2019/12/5 17:18
  **/
 public class Feedback {
-    //private static final String DOWNLOAD_URL = "https://feed.watcherlab.com/api/feedback/v1";
     private static final String DOWNLOAD_URL = "/api/feedback/v1";
     /**
      * 请求token，注册登陆后在用户中心获取
